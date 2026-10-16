@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muharani | Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0a0a0a',
+                        cardBg: '#121212',
+                        accentGreen: '#10b981',
+                        accentTeal: '#2dd4bf',
+                        accentYellow: '#eab308',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome untuk Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-darkBg text-gray-200 font-sans selection:bg-accentGreen selection:text-black">
+
+    <!-- NAVBAR -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-darkBg/80 backdrop-blur-md border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="text-xl font-bold tracking-wider text-white">Rani<span class="text-accentGreen">.</span></a>
+            
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
+                <a href="#beranda" class="hover:text-accentGreen transition">Beranda</a>
+                <a href="#tentang" class="hover:text-accentGreen transition">Tentang</a>
+                <a href="#proyek" class="hover:text-accentGreen transition">Proyek</a>
+                <a href="#kontak" class="hover:text-accentGreen transition">Kontak</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="beranda" class="min-h-screen pt-28 pb-16 flex items-center relative overflow-hidden">
+        <div class="absolute top-1/4 left-10 w-96 h-96 bg-accentGreen/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <p class="text-gray-400 font-medium mb-2 tracking-wide">HALO, SAYA</p>
+                <h1 class="text-4xl sm:text-6xl font-extrabold text-white leading-tight mb-4">
+                    MUHARANI
+                </h1>
+                <p class="text-xl text-gray-300 mb-6">Seorang <span class="text-accentGreen font-semibold border-b-2 border-accentGreen pb-1">UI/UX Designer & Web Developer</span></p>
+                
+                <!-- Social Media Icons -->
+                <div class="flex gap-4 text-gray-400 text-lg mb-8">
+                    <a href="https://github.com/muharani0202" target="_blank" class="w-10 h-10 rounded-full border border-gray-800 flex items-center justify-center hover:text-white hover:border-accentGreen transition"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/muharani-5a4591444" target="_blank" class="w-10 h-10 rounded-full border border-gray-800 flex items-center justify-center hover:text-white hover:border-accentGreen transition"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/muha.ranii?mdxt=MXM0ZjB6enJyMmxieg==" target="_blank" class="w-10 h-10 rounded-full border border-gray-800 flex items-center justify-center hover:text-white hover:border-accentGreen transition"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://tiktok.com/@cottegcoree" target="_blank" class="w-10 h-10 rounded-full border border-gray-800 flex items-center justify-center hover:text-white hover:border-accentGreen transition"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+
+                <p class="text-gray-400 text-sm leading-relaxed mb-8 max-w-lg">
+                    Bagi saya, coding adalah seni menyusun logika yang hidup.
+                </p>
+
+                <div class="flex flex-wrap gap-4">
+                    <a href="#proyek" class="px-6 py-3 rounded-full bg-accentGreen text-black font-semibold hover:bg-emerald-400 transition flex items-center gap-2">
+                        Lihat Proyek <i class="fa-solid fa-arrow-right-long"></i>
+                    </a>
+                    <a href="https://api.whatsapp.com/send?phone=6283164982520&text=Hello%2C%0Asaya%20Muharani%20sebagai%20developer%20web%20app%2C%20ada%20yang%20bisa%20bantu%20untuk%20kebutuhan%20website%20nya%20bapak%2Fibuk%3F" class="px-6 py-3 rounded-full border border-gray-700 text-white font-semibold hover:border-gray-500 transition">
+                        Kontak Saya
+                    </a>
+                </div>
+            </div>
+
+            <!-- Hero Card / Image Mockup dengan Efek Spotlight Kuning -->
+            <div class="relative flex justify-center">
+                <div id="heroCard" class="w-full max-w-md bg-cardBg border border-gray-800 rounded-3xl p-6 shadow-2xl relative overflow-hidden group cursor-pointer transition-colors duration-300">
+                    
+                    <!-- Spotlight Cahaya Kuning Mengikuti Kursor -->
+                    <div id="cardSpotlight" class="absolute pointer-events-none w-80 h-80 rounded-full bg-yellow-400/25 blur-3xl transition-opacity duration-300 opacity-0 -translate-x-1/2 -translate-y-1/2 z-20"></div>
+
+                    <!-- Border Glow Kuning saat kursor mendekat -->
+                    <div id="cardBorderGlow" class="absolute inset-0 rounded-3xl border border-yellow-400/60 pointer-events-none opacity-0 transition-opacity duration-300 z-30"></div>
+
+                    <div class="h-80 rounded-2xl overflow-hidden bg-gray-900 mb-4 relative flex items-center justify-center z-10">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10 pointer-events-none"></div>
+                        <img src="utama.jpeg" alt="Profile" class="w-full h-full object-cover relative z-0">
+                        <div class="absolute bottom-4 left-4 z-20">
+                            <h3 class="text-white font-bold text-lg">MUHARANI</h3>
+                            <p class="text-xs text-gray-300">Web Developer</p>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center bg-gray-900/60 p-3 rounded-xl border border-gray-800 text-xs relative z-10">
+                        <span class="text-yellow-400 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-yellow-400 animate-pulse"></span> Online</span>
+                        <a href="#kontak" class="text-gray-300 hover:text-white font-medium">Contact Me</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TENTANG SAYA -->
+    <section id="tentang" class="py-24 bg-[#0e0e0e] border-t border-gray-800 overflow-hidden">
+    <div class="max-w-6xl mx-auto px-6">
+        <div class="bg-cardBg border border-gray-800 rounded-3xl p-8 md:p-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            
+            <div class="lg:col-span-5 flex justify-center pt-2 relative">
+                
+                
+<div
+    id="lanyardContainer"
+    class="absolute top-0 left-1/2 -translate-x-1/2 w-72 h-40 pointer-events-none z-0"
+>
+    <svg
+        id="lanyardSvg"
+        class="w-full h-full overflow-visible"
+        viewBox="0 0 300 160"
+        preserveAspectRatio="none"
+    >
+        <path
+            id="lanyardPath"
+            d="M 150 0 Q 150 80 150 140"
+            fill="none"
+            stroke="#4b5563"
+            stroke-width="4"
+            stroke-linecap="round"
+        />
+    </svg>
+</div>
+
+                <!-- Container Kartu yang Bisa Ditarik Leluasa -->
+                <div id="dragContainer" class="relative flex flex-col items-center cursor-grab active:cursor-grabbing select-none touch-none mt-16" style="transform-origin: top center; will-change: transform;">
+                    
+                    <!-- Klip / Pengait Lanyard -->
+                    <div id="clipPart" class="flex flex-col items-center z-10 pointer-events-none">
+                        <!-- Ring atas -->
+                        <div class="w-5 h-5 rounded-full border-2 border-gray-500 bg-gray-900 flex items-center justify-center shadow-md">
+                            <div class="w-1.5 h-1.5 rounded-full border border-gray-400"></div>
+                        </div>
+                        <!-- Jepitan metal -->
+                        <div class="w-2.5 h-5 bg-gradient-to-b from-gray-700 to-gray-900 border-x border-gray-600 rounded-sm shadow-md -mt-1"></div>
+                    </div>
+
+                    <!-- ID Card / Kartu Foto -->
+                    <div id="cardPart" class="w-64 h-96 rounded-2xl overflow-hidden shadow-2xl border border-gray-700/60 bg-gray-900 relative -mt-1.5 transition-shadow duration-300 pointer-events-none">
+                        <!-- Lubang Gantungan ID Card -->
+                        <div class="absolute top-2.5 left-1/2 -translate-x-1/2 w-4 h-2 rounded-full bg-black/90 border border-gray-600 z-20"></div>
+                        
+                        <!-- Gambar Profil -->
+                        <img src="profil.jpg" alt="Muharani" class="w-full h-full object-cover grayscale contrast-125 brightness-90">
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Kolom Kanan: Teks Tentang Saya -->
+            <div class="lg:col-span-7">
+                <h2 class="text-3xl font-bold text-white mb-2">Tentang <span class="text-purple-400">Saya</span></h2>
+                <p class="text-xs text-gray-400 mb-6 tracking-wide uppercase">Perpaduan logika kode dan estetika desain.</p>
+                
+                <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                    Mahasiswa Sistem Informasi Politeknik Negeri Padang semester 5 yang bersemangat dalam pengembangan web front end. Memiliki pengalaman dalam membangun website menggunakan HTML, CSS, JavaScript, dan Laravel Framework. Aktif mengikuti bootcamp dan pengembangan proyek untuk meningkatkan keterampilan teknis.
+                </p>
+                <p class="text-gray-300 text-sm leading-relaxed mb-8">
+                    Saat ini, saya mendalami bidang teknologi dan pengembangan web modern. Kombinasi kemampuan teknis dan komunikasi adalah kekuatan utama saya dalam setiap proyek.
+                </p>
+
+                <div class="grid grid-cols-3 gap-4 border-t border-b border-gray-800 py-6 mb-8 text-center">
+                    <div>
+                        <h3 class="text-2xl font-bold text-purple-400">2+</h3>
+                        <p class="text-xs text-gray-400 mt-1">Tahun Pengalaman</p>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-purple-400">6+</h3>
+                        <p class="text-xs text-gray-400 mt-1">Proyek Selesai</p>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-purple-400">6+</h3>
+                        <p class="text-xs text-gray-400 mt-1">bahasa pemrograman dikuasai</p>
+                    </div>
+                </div>
+
+                <a href="#" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gray-800 text-white font-medium text-sm hover:bg-gray-700 transition">
+                    <i class="fa-solid fa-download"></i> Unduh CV
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- TECH & CREATIVE STACK -->
+    <section class="py-24 max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold text-white mb-2">Creative & Tech <span class="text-purple-400">Stack</span></h2>
+            <div class="w-16 h-1 bg-purple-500 mx-auto rounded-full mt-3"></div>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            <!-- HTML -->
+            <div class="bg-cardBg border border-gray-800 rounded-2xl p-6 text-center hover:border-gray-600 transition group">
+                <div class="text-3xl text-orange-500 mb-3 group-hover:scale-110 transition"><i class="fa-brands fa-html5"></i></div>
+                <h4 class="text-white text-sm font-semibold mb-1">HTML</h4>
+                <p class="text-[10px] text-gray-400">WEB FOUNDATION</p>
+            </div>
+            <!-- CSS -->
+            <div class="bg-cardBg border border-gray-800 rounded-2xl p-6 text-center hover:border-gray-600 transition group">
+                <div class="text-3xl text-blue-500 mb-3 group-hover:scale-110 transition"><i class="fa-brands fa-css3-alt"></i></div>
+                <h4 class="text-white text-sm font-semibold mb-1">CSS</h4>
+                <p class="text-[10px] text-gray-400">STYLING</p>
+            </div>
+            <!-- JavaScript -->
+            <div class="bg-cardBg border border-gray-800 rounded-2xl p-6 text-center hover:border-gray-600 transition group">
+                <div class="text-3xl text-yellow-400 mb-3 group-hover:scale-110 transition"><i class="fa-brands fa-js"></i></div>
+                <h4 class="text-white text-sm font-semibold mb-1">JavaScript</h4>
+                <p class="text-[10px] text-gray-400">SCRIPTING</p>
+            </div>
+            <!-- Bootstrap -->
+            <div class="bg-cardBg border border-gray-800 rounded-2xl p-6 text-center hover:border-gray-600 transition group">
+                <div class="text-3xl text-purple-500 mb-3 group-hover:scale-110 transition"><i class="fa-brands fa-bootstrap"></i></div>
+                <h4 class="text-white text-sm font-semibold mb-1">Bootstrap</h4>
+                <p class="text-[10px] text-gray-400">CSS FRAMEWORK</p>
+            </div>
+            <!-- PHP -->
+            <div class="bg-cardBg border border-gray-800 rounded-2xl p-6 text-center hover:border-gray-600 transition group">
+                <div class="text-3xl text-indigo-400 mb-3 group-hover:scale-110 transition"><i class="fa-brands fa-php"></i></div>
+                <h4 class="text-white text-sm font-semibold mb-1">PHP</h4>
+                <p class="text-[10px] text-gray-400">BACKEND LANGUAGE</p>
+            </div>
+            <!-- Laravel -->
+            <div class="bg-cardBg border border-gray-800 rounded-2xl p-6 text-center hover:border-gray-600 transition group">
+                <div class="text-3xl text-red-500 mb-3 group-hover:scale-110 transition"><i class="fa-solid fa-layer-group"></i></div>
+                <h4 class="text-white text-sm font-semibold mb-1">Laravel</h4>
+                <p class="text-[10px] text-gray-400">PHP FRAMEWORK</p>
+            </div>
+            <!-- MySQL -->
+            <div class="bg-cardBg border border-gray-800 rounded-2xl p-6 text-center hover:border-gray-600 transition group">
+                <div class="text-3xl text-blue-400 mb-3 group-hover:scale-110 transition"><i class="fa-solid fa-database"></i></div>
+                <h4 class="text-white text-sm font-semibold mb-1">MySQL</h4>
+                <p class="text-[10px] text-gray-400">DATABASE</p>
+            </div>
+            <!-- Node.js -->
+            <div class="bg-cardBg border border-gray-800 rounded-2xl p-6 text-center hover:border-gray-600 transition group">
+                <div class="text-3xl text-green-500 mb-3 group-hover:scale-110 transition"><i class="fa-brands fa-node-js"></i></div>
+                <h4 class="text-white text-sm font-semibold mb-1">Node.js</h4>
+                <p class="text-[10px] text-gray-400">JAVASCRIPT RUNTIME</p>
+            </div>
+            <!-- Python -->
+            <div class="bg-cardBg border border-gray-800 rounded-2xl p-6 text-center hover:border-gray-600 transition group">
+                <div class="text-3xl text-yellow-500 mb-3 group-hover:scale-110 transition"><i class="fa-brands fa-python"></i></div>
+                <h4 class="text-white text-sm font-semibold mb-1">Python</h4>
+                <p class="text-[10px] text-gray-400">PROGRAMMING</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROYEK TERPILIH -->
+    <section id="proyek" class="py-24 bg-[#0e0e0e] border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-white mb-2">Proyek <span class="text-accentGreen">Terpilih</span></h2>
+                <p class="text-gray-400 text-sm">Beberapa karya yang menyoroti keahlian saya.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Proyek 1 -->
+                <a href="https://muharani0202.github.io/Tambang" target="_blank" class="bg-cardBg border border-gray-800 rounded-3xl overflow-hidden group hover:border-accentGreen transition block">
+                    <div class="h-64 overflow-hidden bg-gray-900">
+                        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=80" alt="Tambang Project" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-white font-bold text-lg mb-1">Landing Page perusahaan tambang</h3>
+                        <p class="text-xs text-gray-400">UI/UX Landing Page perusahaan tambang</p>
+                    </div>
+                </a>
+
+                <!-- Proyek 2 -->
+                <a href="https://muharani0202.github.io/Umroh/" target="_blank" class="bg-cardBg border border-gray-800 rounded-3xl overflow-hidden group hover:border-accentGreen transition block">
+                    <div class="h-64 overflow-hidden bg-gray-900">
+                        <img src="https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=600&q=80" alt="Umroh Project" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-white font-bold text-lg mb-1">Tampilan UI Travel Umroh</h3>
+                        <p class="text-xs text-gray-400">Tampilan Landing Page untuk aplikasi travel umroh</p>
+                    </div>
+                </a>
+
+                <!-- Proyek 3 -->
+                <a href="https://muharani0202.github.io/MINI-DISNEY-UAS-/" target="_blank" class="bg-cardBg border border-gray-800 rounded-3xl overflow-hidden group hover:border-accentGreen transition block">
+                    <div class="h-64 overflow-hidden bg-gray-900">
+                        <img src="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=600&q=80" alt="Disney Project" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-white font-bold text-lg mb-1">Tampilan katalog video</h3>
+                        <p class="text-xs text-gray-400">Desain antarmuka platform komunitas video.</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="#" class="px-8 py-3 rounded-full border border-gray-700 text-white font-semibold text-sm hover:border-accentGreen hover:text-accentGreen transition">View All Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- KONTAK / LET'S CONNECT -->
+    <section id="kontak" class="py-24 max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold text-white mb-2">Let's <span class="text-accentGreen">Connect</span></h2>
+            <p class="text-gray-400 text-sm">I am always open to new projects or just a chat. Send your signal.</p>
+        </div>
+
+        <div class="bg-cardBg border border-gray-800 rounded-3xl p-8 md:p-12 grid grid-cols-1 lg:grid-cols-12 gap-12">
+            <!-- Informasi Kontak -->
+            <div class="lg:col-span-5 flex flex-col justify-between space-y-6">
+                <div>
+                    <div class="flex items-center gap-2 text-xs font-semibold text-pink-500 mb-6">
+                        <span class="w-2 h-2 rounded-full bg-pink-500 animate-pulse"></span> SYSTEM STATUS: ONLINE
+                    </div>
+                    
+                    <div class="bg-gray-900/60 border border-gray-800 p-4 rounded-2xl mb-4">
+                        <p class="text-[10px] text-gray-400 uppercase tracking-wider mb-1">Email Me</p>
+                        <p class="text-white font-medium text-sm">muharani0202@gmail.com</p>
+                    </div>
+
+                    <div class="bg-gray-900/60 border border-gray-800 p-4 rounded-2xl">
+                        <p class="text-[10px] text-gray-400 uppercase tracking-wider mb-1">Chat WhatsApp</p>
+                        <a href="https://api.whatsapp.com/send?phone=6283164982520&text=Hello%2C%0Asaya%20Muharani%20sebagai%20developer%20web%20app%2C%20ada%20yang%20bisa%20bantu%20untuk%20kebutuhan%20website%20nya%20bapak%2Fibuk%3F" target="_blank" class="text-white font-medium text-sm hover:text-emerald-400 transition">
+                            +62 831 6498 2520
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form Kontak -->
+            <div class="lg:col-span-7">
+                <form class="space-y-6" onsubmit="event.preventDefault(); alert('Pesan berhasil terkirim!');">
+                    <div>
+                        <label class="block text-xs font-medium text-gray-400 uppercase mb-2">Sender ID / Name</label>
+                        <input type="text" placeholder="Masukkan nama Anda" required class="w-full bg-gray-900 border border-gray-800 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-accentGreen transition">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-gray-400 uppercase mb-2">Email Address</label>
+                        <input type="email" placeholder="nama@email.com" required class="w-full bg-gray-900 border border-gray-800 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-accentGreen transition">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-gray-400 uppercase mb-2">Message Transmission Data</label>
+                        <textarea rows="4" placeholder="Tuliskan pesan atau detail proyek..." required class="w-full bg-gray-900 border border-gray-800 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-accentGreen transition"></textarea>
+                    </div>
+                    <button type="submit" class="w-full py-4 rounded-xl bg-accentGreen text-black font-bold hover:bg-emerald-400 transition">
+                        Kirim Pesan
+                    </button>
+               </form>
+            </div>
+    </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-8 border-t border-gray-800 text-center text-xs text-gray-500">
+        <p>&copy; 2026 Muharani. All rights reserved.</p>
+    </footer>
+
+    
+
+<script>
+    // =========================================
+    
+    // =========================================
+
+    const heroCard = document.getElementById('heroCard');
+    const cardSpotlight = document.getElementById('cardSpotlight');
+    const cardBorderGlow = document.getElementById('cardBorderGlow');
+
+    if (heroCard && cardSpotlight && cardBorderGlow) {
+        const heroImage = heroCard.querySelector('img');
+
+        heroCard.style.transformStyle = 'preserve-3d';
+
+        heroCard.addEventListener('pointermove', (e) => {
+            if (e.pointerType === 'touch') return;
+
+            const rect = heroCard.getBoundingClientRect();
+
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            const percentX = (x - rect.width / 2) / (rect.width / 2);
+            const percentY = (y - rect.height / 2) / (rect.height / 2);
+
+            // Spotlight mengikuti kursor
+            cardSpotlight.style.left = `${x}px`;
+            cardSpotlight.style.top = `${y}px`;
+            cardSpotlight.style.opacity = '1';
+
+            // Border glow kuning
+            cardBorderGlow.style.opacity = '1';
+            heroCard.style.borderColor = 'rgba(250, 204, 21, 0.65)';
+
+            // Efek 3D tilt
+            const rotateY = percentX * 7;
+            const rotateX = percentY * -7;
+
+            heroCard.style.transition = 'border-color 200ms ease';
+            heroCard.style.transform =
+                `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.015, 1.015, 1.015)`;
+
+            // Foto sedikit membesar
+            if (heroImage) {
+                heroImage.style.transition = 'transform 300ms ease';
+                heroImage.style.transform = 'scale(1.04)';
+            }
+        });
+
+        heroCard.addEventListener('pointerleave', () => {
+            cardSpotlight.style.opacity = '0';
+            cardBorderGlow.style.opacity = '0';
+
+            heroCard.style.transition =
+                'transform 450ms ease, border-color 300ms ease';
+
+            heroCard.style.transform =
+                'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+
+            heroCard.style.borderColor = '';
+
+            if (heroImage) {
+                heroImage.style.transform = 'scale(1)';
+            }
+        });
+    }
+
+
+   
+    const dragContainer = document.getElementById('dragContainer');
+    const clipPart = document.getElementById('clipPart');
+    const lanyardSvg = document.getElementById('lanyardSvg');
+    const lanyardPath = document.getElementById('lanyardPath');
+
+    if (dragContainer && clipPart && lanyardSvg && lanyardPath) {
+        let isDragging = false;
+
+        let startX = 0;
+        let startY = 0;
+
+        let currentX = 0;
+        let currentY = 0;
+
+        let targetX = 0;
+        let targetY = 0;
+
+        const MAX_X = 220;
+        const MIN_Y = -30;
+        const MAX_Y = 180;
+
+        // Mulai menarik dengan mouse atau layar sentuh
+        dragContainer.addEventListener('pointerdown', (e) => {
+            if (e.button !== undefined && e.button !== 0) return;
+
+            isDragging = true;
+
+            startX = e.clientX - targetX;
+            startY = e.clientY - targetY;
+
+            dragContainer.setPointerCapture(e.pointerId);
+            dragContainer.style.cursor = 'grabbing';
+        });
+
+        // Gerakkan kartu
+        dragContainer.addEventListener('pointermove', (e) => {
+            if (!isDragging) return;
+
+            targetX = Math.max(
+                -MAX_X,
+                Math.min(MAX_X, e.clientX - startX)
+            );
+
+            targetY = Math.max(
+                MIN_Y,
+                Math.min(MAX_Y, e.clientY - startY)
+            );
+        });
+
+        // Lepaskan kartu
+        function releaseCard() {
+            isDragging = false;
+            dragContainer.style.cursor = 'grab';
+        }
+
+        dragContainer.addEventListener('pointerup', releaseCard);
+        dragContainer.addEventListener('pointercancel', releaseCard);
+        dragContainer.addEventListener('lostpointercapture', releaseCard);
+
+        // Konversi koordinat layar ke koordinat SVG
+        function screenToSvg(x, y) {
+            const point = lanyardSvg.createSVGPoint();
+
+            point.x = x;
+            point.y = y;
+
+            const matrix = lanyardSvg.getScreenCTM();
+
+            if (!matrix) return point;
+
+            return point.matrixTransform(matrix.inverse());
+        }
+
+        // Animasi gerakan dan pembaruan tali
+        function animate() {
+            if (!isDragging) {
+                targetX += (0 - targetX) * 0.08;
+                targetY += (0 - targetY) * 0.08;
+            }
+
+            currentX += (targetX - currentX) * 0.12;
+            currentY += (targetY - currentY) * 0.12;
+
+            const rotation = currentX * 0.06;
+
+            dragContainer.style.transform =
+                `translate3d(${currentX}px, ${currentY}px, 0) rotate(${rotation}deg)`;
+
+            // Hitung posisi awal tali
+            const svgRect = lanyardSvg.getBoundingClientRect();
+
+            const start = screenToSvg(
+                svgRect.left + svgRect.width / 2,
+                svgRect.top
+            );
+
+            // Hitung posisi pengait aktual
+            const clipRect = clipPart.getBoundingClientRect();
+
+            const end = screenToSvg(
+                clipRect.left + clipRect.width / 2,
+                clipRect.top + clipRect.height / 2
+            );
+
+            // Kurva tali mengikuti pengait
+            const dx = end.x - start.x;
+            const dy = end.y - start.y;
+
+            const controlX = start.x + dx * 0.5;
+            const controlY = start.y + dy * 0.5;
+
+            lanyardPath.setAttribute(
+                'd',
+                `M ${start.x} ${start.y} Q ${controlX} ${controlY} ${end.x} ${end.y}`
+            );
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+    }
+</script>
+
+
+</body>
+</html>

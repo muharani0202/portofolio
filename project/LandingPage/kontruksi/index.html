@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PT. ABC Konstruksi - Solusi Konstruksi & Infrastruktur Terpercaya</title>
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-navy: #0B2545;
+            --secondary-navy: #134074;
+            --accent-orange: #EE6C4D;
+            --accent-yellow: #F4D35E;
+            --light-gray: #EEF4F8;
+            --dark-gray: #2B2D42;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark-gray);
+            background-color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Navbar Customization */
+        .navbar {
+            background-color: var(--primary-navy);
+            transition: all 0.3s ease;
+        }
+        .navbar-brand {
+            font-weight: 700;
+            color: #ffffff !important;
+            letter-spacing: -0.5px;
+        }
+        .nav-link {
+            color: rgba(255, 255, 255, 0.85) !important;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: var(--accent-orange) !important;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(11, 37, 69, 0.85), rgba(19, 64, 116, 0.8)), url('https://images.unsplash.com/photo-1541888946425-d0fbb18f86f6?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            padding: 160px 0 120px 0;
+            color: white;
+        }
+        .hero-title {
+            font-weight: 800;
+            font-size: 3rem;
+            line-height: 1.2;
+        }
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.2rem; }
+        }
+
+        /* Custom Buttons */
+        .btn-accent {
+            background-color: var(--accent-orange);
+            border-color: var(--accent-orange);
+            color: white;
+            font-weight: 600;
+            padding: 12px 28px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        .btn-accent:hover {
+            background-color: #d95a3a;
+            border-color: #d95a3a;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(238, 108, 77, 0.3);
+        }
+        .btn-outline-light-custom {
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            color: white;
+            font-weight: 600;
+            padding: 10px 26px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        .btn-outline-light-custom:hover {
+            background-color: white;
+            color: var(--primary-navy);
+            transform: translateY(-2px);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 90px 0;
+        }
+        .bg-light-custom {
+            background-color: var(--light-gray);
+        }
+        .section-title {
+            font-weight: 700;
+            color: var(--primary-navy);
+            margin-bottom: 15px;
+        }
+        .section-subtitle {
+            color: var(--accent-orange);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.85rem;
+        }
+
+        /* Service Cards */
+        .service-card {
+            background: white;
+            border-radius: 12px;
+            border: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(11, 37, 69, 0.1);
+        }
+        .service-icon-box {
+            width: 70px;
+            height: 70px;
+            background-color: rgba(238, 108, 77, 0.1);
+            color: var(--accent-orange);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        /* Portfolio / Projects */
+        .portfolio-card {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        .portfolio-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .portfolio-img-wrapper {
+            height: 240px;
+            overflow: hidden;
+        }
+        .portfolio-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .portfolio-card:hover .portfolio-img-wrapper img {
+            transform: scale(1.05);
+        }
+
+        /* Why Choose Us Features */
+        .feature-box {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            border-left: 4px solid var(--accent-orange);
+            height: 100%;
+        }
+
+        /* Testimonials */
+        .testimonial-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        .testimonial-card::before {
+            content: "\f278";
+            font-family: "bootstrap-icons";
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 40px;
+            color: rgba(238, 108, 77, 0.15);
+        }
+
+        /* Contact & Footer */
+        .contact-form {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            padding: 40px;
+        }
+        .form-control, .form-select {
+            padding: 12px 15px;
+            border-radius: 8px;
+            border: 1px solid #ced4da;
+        }
+        .form-control:focus, .form-select:focus {
+            box-shadow: 0 0 0 3px rgba(238, 108, 77, 0.25);
+            border-color: var(--accent-orange);
+        }
+        footer {
+            background-color: var(--primary-navy);
+            color: rgba(255, 255, 255, 0.8);
+        }
+        footer h5 {
+            color: white;
+            font-weight: 700;
+        }
+        footer a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        footer a:hover {
+            color: var(--accent-orange);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+                <i class="bi bi-buildings-fill fs-3 text-warning"></i>
+                <span>PT. ABC KONSTRUKSI</span>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3 py-3 py-lg-0">
+                    <li class="nav-item"><a class="nav-link active" href="#beranda">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#tentang">Tentang Kami</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#layanan">Layanan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#proyek">Proyek</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#testimoni">Testimoni</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#kontak">Kontak</a></li>
+                    <li class="nav-item mt-2 mt-lg-0 ms-lg-2">
+                        <a href="#kontak" class="btn btn-accent btn-sm px-3 py-2 w-100">Hubungi Kami</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 2. Hero Section -->
+    <header id="beranda" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center min-vh-75">
+                <div class="col-lg-8">
+                    <span class="badge bg-warning text-dark px-3 py-2 mb-3 fw-semibold rounded-pill">Mitra Konstruksi Terpercaya & Profesional</span>
+                    <h1 class="hero-title mb-4">Membangun Masa Depan Dengan Kualitas & Keandalan Konstruksi</h1>
+                    <p class="lead mb-5 text-light opacity-90 fs-5">PT. ABC Konstruksi hadir untuk mewujudkan proyek infrastruktur dan bangunan impian Anda dengan standar mutu tinggi, ketepatan waktu, dan tenaga ahli berpengalaman.</p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="#kontak" class="btn btn-accent btn-lg">Konsultasi Gratis</a>
+                        <a href="#proyek" class="btn btn-outline-light-custom btn-lg">Lihat Proyek</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 3. Tentang Kami -->
+    <section id="tentang">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <div class="position-relative">
+                        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80" alt="Tentang PT ABC Konstruksi" class="img-fluid rounded-4 shadow-lg w-100">
+                        <div class="position-absolute bottom-0 end-0 bg-warning text-dark p-4 rounded-4 shadow d-none d-sm-block m-4">
+                            <h3 class="fw-bold mb-0">15+ Tahun</h3>
+                            <p class="mb-0 small fw-semibold">Pengalaman di Industri</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <span class="section-subtitle">Tentang Perusahaan</span>
+                    <h2 class="section-title display-6 fw-bold">Membangun Kepercayaan Melalui Karya Konstruksi Unggulan</h2>
+                    <p class="text-muted mb-4">PT. ABC Konstruksi didirikan pada tahun 2009 dan telah berkembang menjadi salah satu perusahaan jasa konstruksi dan infrastruktur terkemuka di Indonesia. Kami mengedepankan inovasi, keselamatan kerja (K3), serta kepuasan klien dalam setiap pengerjaan proyek komersial maupun publik.</p>
+                    
+                    <div class="row g-4 mb-4">
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-start gap-3">
+                                <div class="bg-primary text-white p-2 rounded-3 fs-5"><i class="bi bi-eye"></i></div>
+                                <div>
+                                    <h5 class="fw-bold mb-1">Visi Kami</h5>
+                                    <p class="text-muted small mb-0">Menjadi perusahaan konstruksi nasional paling andal dan berstandar internasional.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-start gap-3">
+                                <div class="bg-primary text-white p-2 rounded-3 fs-5"><i class="bi bi-bullseye"></i></div>
+                                <div>
+                                    <h5 class="fw-bold mb-1">Misi Kami</h5>
+                                    <p class="text-muted small mb-0">Menyediakan solusi konstruksi bermutu tinggi, efisien, dan ramah lingkungan.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#kontak" class="btn btn-dark px-4 py-2">Pelajari Lebih Lanjut</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Layanan Kami -->
+    <section id="layanan" class="bg-light-custom">
+        <div class="container">
+            <div class="text-center mx-auto mb-5" style="max-width: 700px;">
+                <span class="section-subtitle">Layanan Kami</span>
+                <h2 class="section-title display-6 fw-bold">Solusi Menyeluruh untuk Kebutuhan Konstruksi Anda</h2>
+                <p class="text-muted">Kami menawarkan berbagai layanan profesional mulai dari perencanaan arsitektur hingga eksekusi pembangunan fisik.</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="service-card p-4 h-100">
+                        <div class="service-icon-box">
+                            <i class="bi bi-building"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Konstruksi Gedung & Komersial</h4>
+                        <p class="text-muted mb-4">Pembangunan gedung perkantoran, pusat perbelanjaan, apartemen, dan fasilitas komersial berstandar tinggi dengan ketahanan optimal.</p>
+                        <a href="#kontak" class="text-decoration-none fw-semibold text-primary d-flex align-items-center gap-1">Konsultasi Layanan <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="service-card p-4 h-100">
+                        <div class="service-icon-box">
+                            <i class="bi bi-signpost-split"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Infrastruktur & Jalan Raya</h4>
+                        <p class="text-muted mb-4">Pekerjaan sipil skala besar mencakup pembangunan jalan tol, jembatan, drainase, serta fasilitas publik untuk konektivitas wilayah.</p>
+                        <a href="#kontak" class="text-decoration-none fw-semibold text-primary d-flex align-items-center gap-1">Konsultasi Layanan <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="service-card p-4 h-100">
+                        <div class="service-icon-box">
+                            <i class="bi bi-house-gear"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Renovasi & Desain Arsitektur</h4>
+                        <p class="text-muted mb-4">Layanan renovasi total/sebagian serta perencanaan desain arsitektur modern yang fungsional, estetik, dan efisien biaya.</p>
+                        <a href="#kontak" class="text-decoration-none fw-semibold text-primary d-flex align-items-center gap-1">Konsultasi Layanan <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Portofolio / Proyek Unggulan -->
+    <section id="proyek">
+        <div class="container">
+            <div class="text-center mx-auto mb-5" style="max-width: 700px;">
+                <span class="section-subtitle">Portofolio Kami</span>
+                <h2 class="section-title display-6 fw-bold">Proyek Unggulan yang Telah Diselesaikan</h2>
+                <p class="text-muted">Bukti nyata dedikasi dan kualitas pengerjaan proyek konstruksi dari tim PT. ABC Konstruksi.</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="portfolio-card bg-white">
+                        <div class="portfolio-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80" alt="Gedung Perkantoran Sudirman">
+                        </div>
+                        <div class="p-4">
+                            <span class="badge bg-secondary mb-2">Gedung Komersial</span>
+                            <h5 class="fw-bold mb-2">Gedung Perkantoran Sudirman Tower</h5>
+                            <p class="text-muted small mb-0">Pembangunan gedung perkantoran 25 lantai dengan konsep ramah lingkungan dan sistem penghematan energi terkini.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="portfolio-card bg-white">
+                        <div class="portfolio-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=600&q=80" alt="Jembatan Metropolitan">
+                        </div>
+                        <div class="p-4">
+                            <span class="badge bg-secondary mb-2">Infrastruktur</span>
+                            <h5 class="fw-bold mb-2">Jembatan Metropolitan City</h5>
+                            <p class="text-muted small mb-0">Konstruksi jembatan penghubung utama kota dengan struktur baja berkualitas tinggi dan ketahanan beban maksimal.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="portfolio-card bg-white">
+                        <div class="portfolio-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" alt="Perumahan Modern Green Valley">
+                        </div>
+                        <div class="p-4">
+                            <span class="badge bg-secondary mb-2">Residensial</span>
+                            <h5 class="fw-bold mb-2">Perumahan Modern Green Valley</h5>
+                            <p class="text-muted small mb-0">Pengembangan klaster perumahan modern eksklusif lengkap dengan fasilitas umum dan tata ruang terpadu.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Mengapa Memilih Kami -->
+    <section class="bg-light-custom">
+        <div class="container">
+            <div class="text-center mx-auto mb-5" style="max-width: 700px;">
+                <span class="section-subtitle">Keunggulan Kami</span>
+                <h2 class="section-title display-6 fw-bold">Mengapa Memilih PT. ABC Konstruksi?</h2>
+                <p class="text-muted">Komitmen kami untuk memberikan hasil terbaik pada setiap detail pekerjaan konstruksi Anda.</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-box">
+                        <div class="fs-2 text-warning mb-3"><i class="bi bi-award-fill"></i></div>
+                        <h5 class="fw-bold mb-2">Tenaga Ahli Bersertifikasi</h5>
+                        <p class="text-muted small mb-0">Didukung oleh insinyur, arsitek, dan tenaga ahli berpengalaman yang memiliki sertifikasi resmi di bidangnya.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-box">
+                        <div class="fs-2 text-warning mb-3"><i class="bi bi-clock-history"></i></div>
+                        <h5 class="fw-bold mb-2">Tepat Waktu</h5>
+                        <p class="text-muted small mb-0">Manajemen proyek yang terstruktur memastikan setiap tahapan pekerjaan selesai sesuai jadwal yang disepakati.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-box">
+                        <div class="fs-2 text-warning mb-3"><i class="bi bi-shield-check"></i></div>
+                        <h5 class="fw-bold mb-2">Material Berkualitas Tinggi</h5>
+                        <p class="text-muted small mb-0">Hanya menggunakan bahan bangunan pilihan yang memenuhi Standar Nasional Indonesia (SNI) & internasional.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-box">
+                        <div class="fs-2 text-warning mb-3"><i class="bi bi-patch-check-fill"></i></div>
+                        <h5 class="fw-bold mb-2">Garansi Konstruksi</h5>
+                        <p class="text-muted small mb-0">Memberikan jaminan layanan purna jual dan garansi struktur bangunan untuk ketenangan investasi Anda.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Testimoni Klien -->
+    <section id="testimoni">
+        <div class="container">
+            <div class="text-center mx-auto mb-5" style="max-width: 700px;">
+                <span class="section-subtitle">Testimoni Klien</span>
+                <h2 class="section-title display-6 fw-bold">Apa Kata Mitra & Klien Kami?</h2>
+                <p class="text-muted">Kepuasan klien adalah prioritas utama dan tolok ukur kesuksesan setiap proyek kami.</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="testimonial-card h-100">
+                        <div class="d-flex text-warning mb-3">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="text-muted mb-4">"Kerja sama dengan PT. ABC Konstruksi sangat memuaskan. Gedung perkantoran kami selesai tepat waktu dengan kualitas finishing yang sangat rapi."</p>
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center fw-bold" style="width: 45px; height: 45px;">BS</div>
+                            <div>
+                                <h6 class="fw-bold mb-0">Budi Santoso</h6>
+                                <p class="text-muted small mb-0">Direktur Utama, PT. Maju Jaya Perkasa</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="testimonial-card h-100">
+                        <div class="d-flex text-warning mb-3">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="text-muted mb-4">"Profesionalisme tim sangat terasa dari perencanaan hingga serah terima proyek. Komunikasi lancar dan transparan mengenai anggaran."</p>
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center fw-bold" style="width: 45px; height: 45px;">DN</div>
+                            <div>
+                                <h6 class="fw-bold mb-0">Dewi Lestari</h6>
+                                <p class="text-muted small mb-0">Project Manager, Graha Property</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="testimonial-card h-100">
+                        <div class="d-flex text-warning mb-3">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="text-muted mb-4">"Pengerjaan infrastruktur jembatan yang ditangani sangat kokoh dan memenuhi spesifikasi teknis ketat. Sangat direkomendasikan!"</p>
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center fw-bold" style="width: 45px; height: 45px;">AH</div>
+                            <div>
+                                <h6 class="fw-bold mb-0">Ahmad Hidayat</h6>
+                                <p class="text-muted small mb-0">Kepala Dinas Pekerjaan Umum</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Kontak & Lokasi -->
+    <section id="kontak" class="bg-light-custom">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-6">
+                    <span class="section-subtitle">Hubungi Kami</span>
+                    <h2 class="section-title display-6 fw-bold">Diskusikan Proyek Anda Bersama Kami</h2>
+                    <p class="text-muted mb-4">Isi formulir di bawah ini untuk konsultasi gratis atau penjadwalan meeting dengan tim ahli kami.</p>
+                    
+                    <div class="d-flex flex-column gap-3 mb-4">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="bg-primary text-white p-3 rounded-3 fs-5"><i class="bi bi-geo-alt-fill"></i></div>
+                            <div>
+                                <h6 class="fw-bold mb-1">Alamat Kantor</h6>
+                                <p class="text-muted small mb-0">Jl. HR Rasuna Said Blok X-2 Kav. 5, Kuningan, Jakarta Selatan</p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="bg-primary text-white p-3 rounded-3 fs-5"><i class="bi bi-telephone-fill"></i></div>
+                            <div>
+                                <h6 class="fw-bold mb-1">Telepon / WhatsApp</h6>
+                                <p class="text-muted small mb-0">+62 21 5558 9922 / +62 812 3456 7890</p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="bg-primary text-white p-3 rounded-3 fs-5"><i class="bi bi-envelope-fill"></i></div>
+                            <div>
+                                <h6 class="fw-bold mb-1">Email Resmi</h6>
+                                <p class="text-muted small mb-0">info@abc-konstruksi.co.id</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="contact-form">
+                        <h4 class="fw-bold mb-4">Kirim Pesan Konsultasi</h4>
+                        <form onsubmit="handleFormSubmit(event)">
+                            <div class="mb-3">
+                                <label for="nama" class="form-label small fw-semibold">Nama Lengkap</label>
+                                <input type="text" class="form-control" id="nama" placeholder="Masukkan nama Anda" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label small fw-semibold">Alamat Email</label>
+                                <input type="email" class="form-control" id="email" placeholder="nama@domain.com" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="layanan-pilihan" class="form-label small fw-semibold">Jenis Layanan</label>
+                                <select class="form-select" id="layanan-pilihan" required>
+                                    <option value="" selected disabled>Pilih layanan...</option>
+                                    <option value="gedung">Konstruksi Gedung & Komersial</option>
+                                    <option value="infrastruktur">Infrastruktur & Jalan Raya</option>
+                                    <option value="renovasi">Renovasi & Desain Arsitektur</option>
+                                </select>
+                            </div>
+                            <div class="mb-4">
+                                <label for="pesan" class="form-label small fw-semibold">Pesan & Keterangan Proyek</label>
+                                <textarea class="form-control" id="pesan" rows="4" placeholder="Ceritakan detail singkat proyek Anda..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-accent w-100 py-3 fw-bold">Kirim Pesan Konsultasi</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Map Placeholder -->
+            <div class="row mt-5">
+                <div class="col-12">
+                    <div class="rounded-4 overflow-hidden shadow-sm bg-white p-3 text-center border">
+                        <div class="bg-light rounded-3 p-5 d-flex flex-column align-items-center justify-content-center" style="min-height: 250px;">
+                            <i class="bi bi-map fs-1 text-primary mb-2"></i>
+                            <h5 class="fw-bold">Peta Lokasi Kantor Pusat PT. ABC Konstruksi</h5>
+                            <p class="text-muted small mb-0">Jl. HR Rasuna Said Blok X-2 Kav. 5, Kuningan, Jakarta Selatan</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. Footer -->
+    <footer class="py-5">
+        <div class="container">
+            <div class="row g-4 mb-4">
+                <div class="col-lg-4">
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <i class="bi bi-buildings-fill fs-3 text-warning"></i>
+                        <h5 class="mb-0 fw-bold text-white">PT. ABC KONSTRUKSI</h5>
+                    </div>
+                    <p class="small text-white-50 mb-4">Perusahaan jasa konstruksi dan infrastruktur terpercaya yang mengutamakan kualitas, ketepatan waktu, dan keselamatan kerja.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="fs-5"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="fs-5"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="fs-5"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="fs-5"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-6 col-lg-2">
+                    <h5 class="small text-uppercase tracking-wider fw-bold mb-3">Navigasi</h5>
+                    <ul class="list-unstyled d-flex flex-column gap-2 small">
+                        <li><a href="#beranda">Beranda</a></li>
+                        <li><a href="#tentang">Tentang Kami</a></li>
+                        <li><a href="#layanan">Layanan</a></li>
+                        <li><a href="#proyek">Proyek</a></li>
+                        <li><a href="#kontak">Kontak</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-6 col-lg-3">
+                    <h5 class="small text-uppercase tracking-wider fw-bold mb-3">Layanan Utama</h5>
+                    <ul class="list-unstyled d-flex flex-column gap-2 small">
+                        <li><a href="#layanan">Gedung & Komersial</a></li>
+                        <li><a href="#layanan">Infrastruktur Jalan</a></li>
+                        <li><a href="#layanan">Renovasi Arsitektur</a></li>
+                        <li><a href="#layanan">Manajemen Proyek</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3">
+                    <h5 class="small text-uppercase tracking-wider fw-bold mb-3">Legalitas</h5>
+                    <p class="small text-white-50 mb-2">Akta Pendirian: No. 12 Tahun 2009<br>NIB: 9120001234567<br>SBU Konstruksi Grade Utama</p>
+                </div>
+            </div>
+            
+            <hr class="border-secondary opacity-25 my-4">
+            
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start small text-white-50">
+                    &copy; 2026 PT. ABC Konstruksi. Seluruh Hak Cipta Dilindungi.
+                </div>
+                <div class="col-md-6 text-center text-md-end small text-white-50 mt-2 mt-md-0">
+                    Dibuat dengan standar profesional tinggi.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Custom form submission handler without using alert()
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const nama = document.getElementById('nama').value;
+            
+            // Create custom success notification banner
+            const formContainer = event.target.closest('.contact-form');
+            formContainer.innerHTML = `
+                <div class="text-center py-5">
+                    <div class="fs-1 text-success mb-3"><i class="bi bi-check-circle-fill"></i></div>
+                    <h4 class="fw-bold mb-2">Terima Kasih, ${nama}!</h4>
+                    <p class="text-muted mb-4">Pesan konsultasi Anda telah berhasil dikirim. Tim marketing dan teknik kami akan segera menghubungi Anda dalam 1x24 jam.</p>
+                    <button class="btn btn-outline-dark px-4" onclick="location.reload()">Kirim Pesan Lain</button>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
